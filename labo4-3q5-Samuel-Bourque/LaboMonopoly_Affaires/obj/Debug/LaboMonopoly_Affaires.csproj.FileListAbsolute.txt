@@ -1,0 +1,6 @@
+C:\Users\1232291\Source\Repos\labo4-3q5-Samuel-Bourque\LaboMonopoly_Affaires\bin\Debug\LaboMonopoly_Affaires.dll
+C:\Users\1232291\Source\Repos\labo4-3q5-Samuel-Bourque\LaboMonopoly_Affaires\bin\Debug\LaboMonopoly_Affaires.pdb
+C:\Users\1232291\Source\Repos\labo4-3q5-Samuel-Bourque\LaboMonopoly_Affaires\obj\Debug\LaboMonopoly_Affaires.csproj.CoreCompileInputs.cache
+C:\Users\1232291\Source\Repos\labo4-3q5-Samuel-Bourque\LaboMonopoly_Affaires\obj\Debug\LaboMonopoly_Affaires.dll
+C:\Users\1232291\Source\Repos\labo4-3q5-Samuel-Bourque\LaboMonopoly_Affaires\obj\Debug\LaboMonopoly_Affaires.pdb
+C:\Users\1232291\Source\Repos\labo4-3q5-Samuel-Bourque\LaboMonopoly_Affaires\obj\Debug\LaboMonopoly_Affaires.csprojAssemblyReference.cache

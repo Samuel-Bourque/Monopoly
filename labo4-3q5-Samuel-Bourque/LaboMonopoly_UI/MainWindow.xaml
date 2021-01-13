@@ -1,0 +1,135 @@
+﻿<Window x:Class="LaboMonopoly_UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:metier="clr-namespace:LaboMonopoly_Affaires;assembly=LaboMonopoly_Affaires"
+        Title="3Q5-Labo4" Height="564" Width="408">
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type metier:ServicePublic}">
+            <Border Name="bordure" BorderBrush="Black" BorderThickness="2" Padding="5" Margin="5">
+                <StackPanel>
+                    <Grid>
+                        <Image x:Name="Aqueducs"    Source="https://dinfo.ca/aqueducs.gif"    Height="128" Width="128"/>
+                        <Image x:Name="Electricite" Source="https://dinfo.ca/electricite.gif" Height="128" Width="128"/>
+                    </Grid>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Path=Nom}" TextAlignment="Center" FontSize="35" FontWeight="Bold" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding Path=EstEnHypotheque}" Value="True">
+                    <Setter TargetName="bordure" Property="Background" Value="gray"/>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding Path=Service}" Value="{x:Static metier:ServicePublic+TypeServicePublic.Aqueducs}">
+                    <Setter TargetName="Aqueducs" Property="Visibility" Value="Visible"/>
+                    <Setter TargetName="Electricite" Property="Visibility" Value="Hidden"/>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding Path=Service}" Value="{x:Static metier:ServicePublic+TypeServicePublic.Electricite}">
+                    <Setter TargetName="Electricite" Property="Visibility" Value="Visible"/>
+                    <Setter TargetName="Aqueducs" Property="Visibility" Value="Hidden"/>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+
+
+        <DataTemplate DataType="{x:Type metier:Terrain}">
+            <Border Name="bordure" BorderBrush="Black" BorderThickness="2" Padding="5" Margin="5">
+                <StackPanel Name="Titre">
+                    <StackPanel VerticalAlignment="Bottom">
+                        <TextBlock Text="{Binding Path=Nom}" TextAlignment="Center" Padding="0,15,0,5" FontSize="22" FontWeight="Bold" 
+                                   Background="{Binding Path=Couleur}" Foreground="{Binding Path=CouleurTitre}" />
+                    </StackPanel>
+
+                    <TextBlock Text="Location: " TextAlignment="Center">
+                    <TextBlock Text="{Binding Path=PrixLocationBase}"/>
+                    </TextBlock>
+
+                    <Grid>
+                        <Image Name="hotel"   Grid.Column="0" Source="https://dinfo.ca/hotel.png"   Height="96" Width="96"/>
+                        <Image Name="maison1" Grid.Column="0" Source="https://dinfo.ca/maison.png"  Height="64" Width="64"/>
+                        <Image Name="maison2" Grid.Column="1" Source="https://dinfo.ca/maison.png"  Height="64" Width="64"/>
+                        <Image Name="maison3" Grid.Column="2" Source="https://dinfo.ca/maison.png"  Height="64" Width="64"/>
+                        <Image Name="maison4" Grid.Column="3" Source="https://dinfo.ca/maison.png"  Height="64" Width="64"/>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding Path=NbMaisonsConstruites}" Value="0">
+                    <Setter TargetName="hotel"   Property="Visibility" Value="Hidden"/>
+                    <Setter TargetName="maison1" Property="Visibility" Value="Hidden"/>
+                    <Setter TargetName="maison2" Property="Visibility" Value="Hidden"/>
+                    <Setter TargetName="maison3" Property="Visibility" Value="Hidden"/>
+                    <Setter TargetName="maison4" Property="Visibility" Value="Hidden"/>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding Path=NbMaisonsConstruites}" Value="1">
+                    <Setter TargetName="hotel"   Property="Visibility" Value="Hidden"/>
+                    <Setter TargetName="maison1" Property="Visibility" Value="Visible"/>
+                    <Setter TargetName="maison2" Property="Visibility" Value="Hidden"/>
+                    <Setter TargetName="maison3" Property="Visibility" Value="Hidden"/>
+                    <Setter TargetName="maison4" Property="Visibility" Value="Hidden"/>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding Path=NbMaisonsConstruites}" Value="2">
+                    <Setter TargetName="hotel"   Property="Visibility" Value="Hidden"/>
+                    <Setter TargetName="maison1" Property="Visibility" Value="Visible"/>
+                    <Setter TargetName="maison2" Property="Visibility" Value="Visible"/>
+                    <Setter TargetName="maison3" Property="Visibility" Value="Hidden"/>
+                    <Setter TargetName="maison4" Property="Visibility" Value="Hidden"/>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding Path=NbMaisonsConstruites}" Value="3">
+                    <Setter TargetName="hotel"   Property="Visibility" Value="Hidden"/>
+                    <Setter TargetName="maison1" Property="Visibility" Value="Visible"/>
+                    <Setter TargetName="maison2" Property="Visibility" Value="Visible"/>
+                    <Setter TargetName="maison3" Property="Visibility" Value="Visible"/>
+                    <Setter TargetName="maison4" Property="Visibility" Value="Hidden"/>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding Path=NbMaisonsConstruites}" Value="4">
+                    <Setter TargetName="hotel"   Property="Visibility" Value="Hidden"/>
+                    <Setter TargetName="maison1" Property="Visibility" Value="Visible"/>
+                    <Setter TargetName="maison2" Property="Visibility" Value="Visible"/>
+                    <Setter TargetName="maison3" Property="Visibility" Value="Visible"/>
+                    <Setter TargetName="maison4" Property="Visibility" Value="Visible"/>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding Path=NbMaisonsConstruites}" Value="5">
+                    <Setter TargetName="hotel"   Property="Visibility" Value="Visible"/>
+                    <Setter TargetName="maison1" Property="Visibility" Value="Hidden"/>
+                    <Setter TargetName="maison2" Property="Visibility" Value="Hidden"/>
+                    <Setter TargetName="maison3" Property="Visibility" Value="Hidden"/>
+                    <Setter TargetName="maison4" Property="Visibility" Value="Hidden"/>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding Path=EstEnHypotheque}" Value="True">
+                    <Setter TargetName="bordure" Property="Background" Value="gray"/>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+
+    </Window.Resources>
+    
+    <DockPanel Name="panneau">
+        <TextBlock FontSize="30" FontWeight="Bold" Text="Monopoly -- propriétés" HorizontalAlignment="Center" DockPanel.Dock="Top"/>
+        <ListBox HorizontalContentAlignment="Stretch" ItemsSource="{Binding Path=Proprietes}" DockPanel.Dock="Top"/>
+    </DockPanel>
+    
+</Window>
